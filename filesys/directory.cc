@@ -195,3 +195,23 @@ Directory::Print()
     printf("\n");
     delete hdr;
 }
+
+//Codigo implementado en prac5
+
+void
+Directory::CambiarNombre(char* NombreArchivo, char* NuevoNombre)
+{
+int i = FindIndex(NombreArchivo);
+if(i != -1)
+{
+    strncpy(table[i].name, NuevoNombre, FileNameMaxLen); 
+}
+else
+    printf("\nArchivo no encontrado en directorio...\n");
+}
+
+void
+Directory::PrintSectorsFrom(char *NombreArchivo)
+{
+
+}

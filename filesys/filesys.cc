@@ -373,8 +373,8 @@ FileSystem::Manual()
 	printf("./nachos -t \n\n");
     printf("*Sec. Libres -> ' -sdd ' Despliega el numero de sectores libres en Disco Duro\n");
 	printf("./nachos -sdd \n\n");
-    printf("*Sec. Usados -> ' -saf ' Despliega los sectores que tienen asignado un archivo\n");
-	printf("./nachos -saf \n\n");
+    printf("*Sec. Usados -> ' -saf ' Despliega los sectores que tiene asignado un archivo\n");
+	printf("Syntax: -saf <nachos file>  Ex. -> ./nachos -saf small \n\n");
     printf("*Renombrar-> ' -rnf ' Renombrar un archivo\n");
 	printf("Syntax: -rnf <nachos file> <Nuevo nombre>  Ex. -> ./nachos -rnf small pequeño \n\n");
     printf("*Manual -> ' -man ' (Actual en uso) Visualizar un manual  de ayuda general\n");
@@ -414,8 +414,8 @@ FileSystem::Ayuda(char *comando)
 	else if(!strcmp(comando, "sdd")){ printf("*Sec. Libres -> ' -sdd ' Despliega el numero de sectores libres en Disco Duro\n");
 	printf("./nachos -sdd \n\n");}
 		
-	else if(!strcmp(comando, "saf")){  printf("*Sec. Usados -> ' -saf ' Despliega los sectores que tienen asignado un archivo\n");
-	printf("./nachos -saf \n\n");}
+	else if(!strcmp(comando, "saf")){  printf("*Sec. Usados -> ' -saf ' Despliega los sectores que tiene asignado un archivo\n");
+	printf("Syntax: -saf <nachos file>  Ex. -> ./nachos -saf small \n\n");}
 		
 	else if(!strcmp(comando, "rnf")){  printf("*Renombrar-> ' -rnf ' Renombrar un archivo\n");
 	printf("Syntax: -rnf <nachos file> <Nuevo nombre>  Ex. -> ./nachos -rnf small pequeño \n\n");}
@@ -427,6 +427,27 @@ FileSystem::Ayuda(char *comando)
 	printf("./nachos -inf \n\n");}
 		
 	else{ printf("Comando no reconocido, asegura de no incluir el ' - ' Ex. -> ./nachos -help man\n\n");}
-		
-	
+}
+
+void
+FileSystem::SecLibres()
+{
+    /*BitMap *freeMap = new BitMap(NumSectors);
+
+    freeMap->FetchFrom(freeMapFile);
+    freeMap->PrintSecLibres();
+
+    delete freeMap;*/
+}
+
+void
+FileSystem::RenombrarArchivo(char* NombreArchivo, char* NuevoNombre)
+{
+Directory *directory = new Directory(NumDirEntries);
+directory->FetchFrom(directoryFile);
+
+    directory->CambiarNombre(NombreArchivo,NuevoNombre);
+    directory->WriteBack(directoryFile);
+    
+delete directory;
 }

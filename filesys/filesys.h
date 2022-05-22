@@ -93,6 +93,10 @@ class FileSystem {
 
     void Ayuda(char *comando); // Ayuda con comando especifico
 
+    void SecLibres(); // Enseña todos los sectores libres
+
+    void RenombrarArchivo(char* NombreArchivo, char* NuevoNombre);
+
   private:
    OpenFile* freeMapFile;		// Bit map of free disk blocks,
 					// represented as a file

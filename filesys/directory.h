@@ -71,6 +71,12 @@ class Directory {
 					//  of the directory -- all the file
 					//  names and their contents.
 
+//Implementado en prac 5 
+    
+    void CambiarNombre(char* NombreArchivo, char* NuevoNombre);
+
+    void PrintSectorsFrom(char* NombreArchivo);
+
   private:
     int tableSize;			// Number of directory entries
     DirectoryEntry *table;		// Table of pairs: 
