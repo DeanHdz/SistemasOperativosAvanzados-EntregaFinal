@@ -52,6 +52,10 @@ class BitMap {
     void FetchFrom(OpenFile *file); 	// fetch contents from disk 
     void WriteBack(OpenFile *file); 	// write contents to disk
 
+//Implementados en prac5 nachOS
+
+    void PrintSecLibres(); // Imprime los sectores libres
+
   private:
     int numBits;			// number of bits in the bitmap
     int numWords;			// number of words of bitmap storage

@@ -134,14 +134,14 @@ main(int argc, char **argv)
 //Implementacion practica 5
 
 else if (!strcmp(*argv, "-sdd")) {	// Desplegar el numero de los sectores de disco duro que estan libres
-            
+            fileSystem->SecLibres();
 	}
 else if (!strcmp(*argv, "-saf")) {	// Desplegar los sectores que tienen asignado un archivo
             
 	}
 else if (!strcmp(*argv, "-rnf")) {	// Renombrar un archivo
-	    ASSERT(argc > 1);
-            
+	    ASSERT(argc > 2);
+            fileSystem->RenombrarArchivo(*(argv + 1), *(argv + 2));
 	}
 else if (!strcmp(*argv, "-man")) {	// Visualizar en terminal un manual de ayuda general
             fileSystem->Manual();
