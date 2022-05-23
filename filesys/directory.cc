@@ -201,17 +201,36 @@ Directory::Print()
 void
 Directory::CambiarNombre(char* NombreArchivo, char* NuevoNombre)
 {
-int i = FindIndex(NombreArchivo);
-if(i != -1)
-{
-    strncpy(table[i].name, NuevoNombre, FileNameMaxLen); 
-}
-else
-    printf("\nArchivo no encontrado en directorio...\n");
+if( !strcmp( NombreArchivo, NuevoNombre ) )
+    printf("\nNombre Duplicado, indica un diferente nombre nuevo...\n\n");
+else{
+    int i = FindIndex(NombreArchivo);
+    if(i != -1)
+    {
+        strncpy(table[i].name, NuevoNombre, FileNameMaxLen); 
+    }
+    else
+        printf("\nArchivo con el nombre: %s , no fue encontrado en directorio...\n\n",NombreArchivo);
+    }
 }
 
 void
 Directory::PrintSectorsFrom(char *NombreArchivo)
 {
+	int i = FindIndex(NombreArchivo);
+	 if(i != -1)
+    {
+	FileHeader *hdr = new FileHeader;
+	hdr->FetchFrom(table[i].sector);
 
+        printf("\nNombre del archivo: %s",NombreArchivo);
+	printf("\nSector del inodo: %d",table[i].sector);
+	printf("\nNumero de apuntadores directos utilizados: %d",hdr->numSectors);
+	printf("\nSectores que contienen la informacion  del archivo: ");
+	for(i=0;i<hdr->numSectors;i++)
+		printf("%d, ",hdr->dataSectors[i]);
+	printf("\n\n");
+    }
+    else
+        printf("\nArchivo con el nombre: %s , no fue encontrado en directorio...\n\n",NombreArchivo);
 }

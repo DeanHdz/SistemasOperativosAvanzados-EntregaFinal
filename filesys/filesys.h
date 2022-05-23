@@ -97,6 +97,8 @@ class FileSystem {
 
     void RenombrarArchivo(char* NombreArchivo, char* NuevoNombre);
 
+    void DesplegarSectores(char* NombreArchivo);
+
   private:
    OpenFile* freeMapFile;		// Bit map of free disk blocks,
 					// represented as a file

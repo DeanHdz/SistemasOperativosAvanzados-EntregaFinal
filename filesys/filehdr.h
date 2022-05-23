@@ -56,7 +56,7 @@ class FileHeader {
 
     void Print();			// Print the contents of the file.
 
-  private:
+  //private:
     int numBytes;			// Number of bytes in the file
     int numSectors;			// Number of data sectors in the file
     int dataSectors[NumDirect];		// Disk sector numbers for each data 

@@ -340,7 +340,7 @@ FileSystem::Print()
     delete directory;
 } 
 
-//Metodos implementados en prac 5
+//////////////////////     Metodos implementados en prac 5  //////////////////////////////////////
 
 void 
 FileSystem::Informacion()
@@ -432,12 +432,12 @@ FileSystem::Ayuda(char *comando)
 void
 FileSystem::SecLibres()
 {
-    /*BitMap *freeMap = new BitMap(NumSectors);
+    BitMap *freeMap = new BitMap(NumSectors);
 
     freeMap->FetchFrom(freeMapFile);
     freeMap->PrintSecLibres();
 
-    delete freeMap;*/
+    delete freeMap;
 }
 
 void
@@ -450,4 +450,16 @@ directory->FetchFrom(directoryFile);
     directory->WriteBack(directoryFile);
     
 delete directory;
+}
+
+void
+FileSystem::DesplegarSectores(char* NombreArchivo)
+{
+Directory *directory = new Directory(NumDirEntries);
+directory->FetchFrom(directoryFile);
+
+directory->PrintSectorsFrom(NombreArchivo);
+
+delete directory;
+
 }
