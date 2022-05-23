@@ -137,7 +137,8 @@ else if (!strcmp(*argv, "-sdd")) {	// Desplegar el numero de los sectores de dis
             fileSystem->SecLibres();
 	}
 else if (!strcmp(*argv, "-saf")) {	// Desplegar los sectores que tienen asignado un archivo
-            
+	    ASSERT(argc > 1);
+            fileSystem->DesplegarSectores(*(argv + 1));
 	}
 else if (!strcmp(*argv, "-rnf")) {	// Renombrar un archivo
 	    ASSERT(argc > 2);
