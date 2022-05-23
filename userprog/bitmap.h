@@ -52,7 +52,7 @@ class BitMap {
     void FetchFrom(OpenFile *file); 	// fetch contents from disk 
     void WriteBack(OpenFile *file); 	// write contents to disk
 
-//Implementados en prac5 nachOS
+////////////       Implementados en prac5 nachOS     //////////////////////
 
     void PrintSecLibres(); // Imprime los sectores libres
 

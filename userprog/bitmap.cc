@@ -169,5 +169,14 @@ BitMap::WriteBack(OpenFile *file)
 void
 BitMap::PrintSecLibres()
 {
+int i = NumClear();
+printf("\nCantidad de sectores disponibles en DD: %d\n",i);
 
+printf("\nSectores disponibles en DD: ");
+    for (int i = 0; i < numBits; i++)
+	if (!Test(i)) printf("%d, ",i);
+
+printf("\n");
 }
+
+
